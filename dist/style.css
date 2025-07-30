@@ -395,8 +395,8 @@ main {
 }
 
 .tools__icons img {
-  width: 1rem;
-  height: auto;
+  height: 12%;
+  width: auto;
   display: block;
 }
 
@@ -761,6 +761,11 @@ main {
     grid-template-columns: repeat(2, auto);
     gap: 1rem;
     justify-items: center;
+  }
+
+  .tools__icons img {
+    height: 120%;
+    width: 113%;
   }
 
   .education__item {
