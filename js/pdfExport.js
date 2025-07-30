@@ -23,23 +23,15 @@ export const pdfExport = {
     html.style.fontSize = oldFontSize;
 
     const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm", "a4");
 
-    const pdfWidth = 210;
-    const pdfHeight = 297;
-    const ratio = canvas.width / canvas.height;
+    const pxToMm = px => px * 25.4 / 96;
 
-    let imgWidth = pdfWidth;
-    let imgHeight = pdfWidth / ratio;
-    if (imgHeight > pdfHeight) {
-      imgHeight = pdfHeight;
-      imgWidth = pdfHeight * ratio;
-    }
+    const imgWidthMm = pxToMm(canvas.width);
+    const imgHeightMm = pxToMm(canvas.height);
 
-    const x = (pdfWidth - imgWidth) / 2;
-    const y = (pdfHeight - imgHeight) / 2;
+    const pdf = new jsPDF("p", "mm", [imgWidthMm, imgHeightMm]);
 
-    pdf.addImage(imgData, "PNG", x, y, imgWidth, imgHeight);
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidthMm, imgHeightMm);
     pdf.save("resume.pdf");
   },
 };
