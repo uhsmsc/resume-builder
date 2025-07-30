@@ -26,8 +26,17 @@ export const pdfExport = {
 
     const pxToMm = px => px * 25.4 / 96;
 
-    const imgWidthMm = pxToMm(canvas.width);
-    const imgHeightMm = pxToMm(canvas.height);
+    let imgWidthMm = pxToMm(canvas.width);
+    let imgHeightMm = pxToMm(canvas.height);
+
+    const maxWidth = 2000;
+    const maxHeight = 2000;
+
+    if (imgWidthMm > maxWidth || imgHeightMm > maxHeight) {
+      const scaleFactor = Math.min(maxWidth / imgWidthMm, maxHeight / imgHeightMm);
+      imgWidthMm *= scaleFactor;
+      imgHeightMm *= scaleFactor;
+    }
 
     const pdf = new jsPDF("p", "mm", [imgWidthMm, imgHeightMm]);
 
