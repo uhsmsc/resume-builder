@@ -10,18 +10,17 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
+    const DESKTOP_WIDTH = 1024;
+
     const hiddenContainer = document.createElement("div");
     hiddenContainer.style.position = "fixed";
     hiddenContainer.style.left = "-9999px";
     hiddenContainer.style.top = "0";
-    hiddenContainer.style.overflow = "hidden";
-
-    hiddenContainer.style.width = "1024px";
-    hiddenContainer.style.minWidth = "1024px";
+    hiddenContainer.style.width = DESKTOP_WIDTH + "px";
+    hiddenContainer.style.minWidth = DESKTOP_WIDTH + "px";
 
     const clone = resumeElement.cloneNode(true);
     clone.classList.add("print-mode");
-
     hiddenContainer.appendChild(clone);
     document.body.appendChild(hiddenContainer);
 
@@ -31,9 +30,9 @@ export const pdfExport = {
 
     const canvas = await html2canvas(clone, {
       useCORS: true,
-      scale: 3,
-      width: 1024, 
-      windowWidth: 1024,
+      scale: 3, // качество
+      width: DESKTOP_WIDTH,
+      windowWidth: DESKTOP_WIDTH,
     });
 
     document.body.removeChild(hiddenContainer);
@@ -46,6 +45,7 @@ export const pdfExport = {
     });
 
     pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+
     pdf.save("resume.pdf");
   },
 };
