@@ -1,4 +1,3 @@
-/* === Мобильный (<420px) === */
 .resume {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -47,7 +46,7 @@ main {
 }
 
 .tools__container {
-  padding: 0 1.5rem;
+  padding: 0 0.75rem;
   margin-bottom: 1rem;
 }
 
@@ -70,23 +69,11 @@ main {
 
 @media (min-width: 760px) {
   .resume {
-    /*
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "photo intro intro"
-      "languages languages languages"
-      "experience experience experience"
-      "tools tools tools"
-      "interests interests interests"
-      "education education education"
-      "contact contact contact";
-    gap: 1rem;*/
     padding: 1rem;
     max-width: 30rem;
   }
 }
 
-/* === Десктоп (от 1024px) === */
 @media (min-width: 1024px) {
   .resume {
     grid-template-columns: repeat(4, 1fr);
@@ -123,6 +110,7 @@ main {
 
   .tools__container {
     margin-bottom: 0;
+    padding: 0 1.5rem;
   }
 
   .tools__icons {
