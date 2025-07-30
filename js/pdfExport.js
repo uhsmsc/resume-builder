@@ -17,7 +17,6 @@ export const pdfExport = {
     hiddenContainer.style.left = "-9999px";
     hiddenContainer.style.top = "0";
     hiddenContainer.style.width = DESKTOP_WIDTH + "px";
-    hiddenContainer.style.minWidth = DESKTOP_WIDTH + "px";
 
     const clone = resumeElement.cloneNode(true);
     clone.classList.add("print-mode");
@@ -30,21 +29,31 @@ export const pdfExport = {
 
     const canvas = await html2canvas(clone, {
       useCORS: true,
-      scale: 3, // качество
+      scale: 3,
       width: DESKTOP_WIDTH,
       windowWidth: DESKTOP_WIDTH,
     });
 
     document.body.removeChild(hiddenContainer);
 
-    const imgData = canvas.toDataURL("image/png");
+    const a4Width = 794;
+    const a4Height = 1123;
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "px",
-      format: [canvas.width, canvas.height],
+      format: [a4Width, a4Height],
     });
 
-    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    const imgData = canvas.toDataURL("image/png");
+
+    const scale = a4Height / canvas.height;
+    const imgHeight = a4Height;
+    const imgWidth = canvas.width * scale;
+
+    const x = 0;
+    const y = 0;
+
+    pdf.addImage(imgData, "PNG", x, y, imgWidth, imgHeight);
 
     pdf.save("resume.pdf");
   },
