@@ -14,6 +14,13 @@ export const pdfExport = {
     const oldFontSize = html.style.fontSize;
     html.style.fontSize = "16px";
 
+    const images = resumeElement.querySelectorAll("img");
+    images.forEach(img => {
+      const styles = window.getComputedStyle(img);
+      img.width = parseFloat(styles.width);
+      img.height = parseFloat(styles.height);
+    });
+
     const canvas = await html2canvas(resumeElement, {
       scale: 4,
       useCORS: true,
@@ -26,17 +33,8 @@ export const pdfExport = {
 
     const pxToMm = px => px * 25.4 / 96;
 
-    let imgWidthMm = pxToMm(canvas.width);
-    let imgHeightMm = pxToMm(canvas.height);
-
-    const maxWidth = 2000;
-    const maxHeight = 2000;
-
-    if (imgWidthMm > maxWidth || imgHeightMm > maxHeight) {
-      const scaleFactor = Math.min(maxWidth / imgWidthMm, maxHeight / imgHeightMm);
-      imgWidthMm *= scaleFactor;
-      imgHeightMm *= scaleFactor;
-    }
+    const imgWidthMm = pxToMm(canvas.width);
+    const imgHeightMm = pxToMm(canvas.height);
 
     const pdf = new jsPDF("p", "mm", [imgWidthMm, imgHeightMm]);
 

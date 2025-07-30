@@ -396,6 +396,8 @@ main {
 
 .tools__icons img {
   width: 1rem;
+  height: auto;
+  display: block;
 }
 
 .tools__icons img:nth-child(odd) {
