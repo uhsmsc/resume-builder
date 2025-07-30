@@ -51,8 +51,8 @@
 }
 
 .tools__icons img {
-  height: 12%;
-  width: auto;
+  width: 1rem;
+  height: auto;
   display: block;
 }
 
