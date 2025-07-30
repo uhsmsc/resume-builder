@@ -10,19 +10,8 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
-    const media = resumeElement.querySelectorAll("img, svg");
-    await Promise.all(
-      Array.from(media).map(el => {
-        if (el.tagName === "IMG") {
-          return el.complete
-            ? Promise.resolve()
-            : new Promise(r => { el.onload = el.onerror = r; });
-        } else {
-
-          return Promise.resolve();
-        }
-      })
-    );
+    const oldFontSize = resumeElement.style.fontSize;
+    resumeElement.style.fontSize = '16px';
 
     const canvas = await html2canvas(resumeElement, {
       scale: 1,
@@ -31,24 +20,25 @@ export const pdfExport = {
       windowWidth: 1440
     });
 
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF("p", "mm", "a4");
+    resumeElement.style.fontSize = oldFontSize;
 
-    const pdfWidth = 210;
-    const pdfHeight = 297;
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    const pdfW = 210;
+    const pdfH = 297;
     const ratio = canvas.width / canvas.height;
-
-    let imgWidth = pdfWidth;
-    let imgHeight = pdfWidth / ratio;
-    if (imgHeight > pdfHeight) {
-      imgHeight = pdfHeight;
-      imgWidth = pdfHeight * ratio;
+    let imgW = pdfW;
+    let imgH = pdfW / ratio;
+    if (imgH > pdfH) {
+      imgH = pdfH;
+      imgW = pdfH * ratio;
     }
 
-    const x = (pdfWidth - imgWidth) / 2;
-    const y = (pdfHeight - imgHeight) / 2;
+    const x = (pdfW - imgW) / 2;
+    const y = (pdfH - imgH) / 2;
 
-    pdf.addImage(imgData, "PNG", x, y, imgWidth, imgHeight);
-    pdf.save("resume.pdf");
+    pdf.addImage(imgData, 'PNG', x, y, imgW, imgH);
+    pdf.save('resume.pdf');
   },
 };
