@@ -2,7 +2,7 @@ export const pdfExport = {
   init() {
     const btn = document.getElementById("exportPdfBtn");
     if (!btn) return;
-    btn.addEventListener("click", this.exportPdf);
+    btn.addEventListener("click", this.exportPdf.bind(this));
   },
 
   async exportPdf() {
@@ -11,7 +11,7 @@ export const pdfExport = {
     if (!resumeElement) return;
 
     const canvas = await html2canvas(resumeElement, {
-      scale: 2,
+      scale: 6,
       useCORS: true,
       windowWidth: 1440,
     });
