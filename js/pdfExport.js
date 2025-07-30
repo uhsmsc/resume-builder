@@ -11,9 +11,7 @@ export const pdfExport = {
     if (!resumeElement) return;
 
     const canvas = await html2canvas(resumeElement, {
-      scale: 6,
       useCORS: true,
-      svgRendering: true,
       windowWidth: 1440,
     });
 
