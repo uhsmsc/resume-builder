@@ -36,6 +36,22 @@ html {
 main {
   padding: 1.25rem;
 }
+
+.pdf-export-mode {
+  width: 1440px !important;
+}
+
+.pdf-export-mode img {
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.pdf-export-mode * {
+  background-size: auto !important;
+}
+
 /* ===== header.css ===== */
 .page-header {
   display: flex;
@@ -394,9 +410,10 @@ main {
 }
 
 .tools__icons img {
-  height: 1.04rem;
-  width: 1.1rem;
+  height: 1.05rem;
+  width: 1.05rem;
   display: block;
+  object-fit: contain;
 }
 
 .tools__icons img:nth-child(odd) {
@@ -430,7 +447,7 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  align-items: start; /* высота по контенту у каждой */
+  align-items: start;
 }
 
 .education__item {

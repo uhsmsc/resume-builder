@@ -53,6 +53,7 @@
   height: 1.05rem;
   width: 1.05rem;
   display: block;
+  object-fit: contain;
 }
 
 .tools__icons img:nth-child(odd) {

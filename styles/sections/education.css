@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
-  align-items: start; /* высота по контенту у каждой */
+  align-items: start;
 }
 
 .education__item {

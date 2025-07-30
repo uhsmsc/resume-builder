@@ -10,26 +10,24 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
-    resumeElement.querySelectorAll("img").forEach(img => {
-      const cs = window.getComputedStyle(img);
-      img.width  = parseFloat(cs.width);
-      img.height = parseFloat(cs.height);
-    });
+    const DESKTOP_WIDTH = 1024;
 
     const canvas = await html2canvas(resumeElement, {
-      scale: 3,           
       useCORS: true,
-      svgRendering: true,
-      windowWidth: 1440      
+      scale: 3,
+      windowWidth: DESKTOP_WIDTH,
     });
 
-    const pxToMm = px => px * 25.4 / 96; 
-    const imgWidthMm  = pxToMm(canvas.width);
-    const imgHeightMm = pxToMm(canvas.height);
-
-    const pdf = new jsPDF("p", "mm", [imgWidthMm, imgHeightMm]);
     const imgData = canvas.toDataURL("image/png");
-    pdf.addImage(imgData, "PNG", 0, 0, imgWidthMm, imgHeightMm);
+
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "px",
+      format: [canvas.width, canvas.height]
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+
     pdf.save("resume.pdf");
   },
 };
