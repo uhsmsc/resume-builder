@@ -10,24 +10,19 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
-    const html = document.documentElement;
-    const oldFontSize = html.style.fontSize;
-    html.style.fontSize = "16px";
-
-    const images = resumeElement.querySelectorAll("img");
-    images.forEach(img => {
-      const styles = window.getComputedStyle(img);
-      img.width = parseFloat(styles.width);
-      img.height = parseFloat(styles.height);
-    });
+    const rect = resumeElement.getBoundingClientRect();
 
     const canvas = await html2canvas(resumeElement, {
-      scale: 4,
+      scale: 2,
       useCORS: true,
-      windowWidth: 1440,
+      width: rect.width,
+      height: rect.height,
+      windowWidth: document.documentElement.clientWidth,
+      windowHeight: document.documentElement.clientHeight,
+      scrollX: -window.scrollX,
+      scrollY: -window.scrollY,
+      backgroundColor: null,
     });
-
-    html.style.fontSize = oldFontSize;
 
     const imgData = canvas.toDataURL("image/png");
 
