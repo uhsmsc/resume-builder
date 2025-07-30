@@ -12,9 +12,10 @@
     "contact contact";
   gap: 0.625rem;
   padding: 1rem;
-  margin: auto;
+  margin: 1rem auto;
   background: white;
   border-radius: 0.75rem;
+  max-width: 18rem;
 }
 
 .page-header {
@@ -50,57 +51,38 @@ main {
   margin-bottom: 1rem;
 }
 
-/* === Малые планшеты (420px–579px) === */
-@media (min-width: 420px) {
+@media (min-width: 560px) {
   .resume {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "photo languages languages"
-      "contact contact intro"
+      "intro intro intro"
       "experience experience experience"
       "tools tools tools"
       "education education education"
-      "interests interests interests";
+      "interests interests interests"
+      "contact contact contact";
     gap: 1rem;
     padding: 1rem;
-  }
-
-  .photo {
-    max-height: 8rem;
+    max-width: 30rem;
   }
 }
 
-/* === Средние планшеты (580px–699px) === */
-@media (min-width: 580px) {
+@media (min-width: 760px) {
   .resume {
-    grid-template-columns: repeat(4, 1fr);
+    /*
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-      "photo intro languages languages"
-      "experience experience interests interests"
-      "experience experience tools tools"
-      "education education education education"
-      "contact contact contact contact";
-    gap: 1rem;
+      "photo intro intro"
+      "languages languages languages"
+      "experience experience experience"
+      "tools tools tools"
+      "interests interests interests"
+      "education education education"
+      "contact contact contact";
+    gap: 1rem;*/
     padding: 1rem;
-  }
-
-  .tools {
-    gap: 0.5rem;
-  }
-}
-
-/* === Средние планшеты (700px–1023px) === */
-@media (min-width: 700px) {
-  .resume {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-areas:
-      "photo intro languages languages languages"
-      "experience experience experience interests interests"
-      "experience experience experience tools tools"
-      "education education education education contact";
-    gap: 1rem;
-    padding: 1rem;
-    max-width: 45rem;
+    max-width: 30rem;
   }
 }
 
