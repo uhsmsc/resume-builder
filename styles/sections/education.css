@@ -1,0 +1,83 @@
+.education {
+  grid-area: education;
+  background: #f0f0f0;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 150%;
+}
+
+.education__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.education__item {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1 1 calc(50% - 0.75rem);
+  max-width: calc(50% - 0.75rem);
+  box-sizing: border-box;
+}
+
+.education__favorite-icon {
+  width: 0.6rem;
+}
+
+.education__item--highlight {
+  background: #28d979;
+  color: white;
+}
+
+.education__item--highlight .education__tags {
+  color: rgba(235, 249, 242, 1);
+}
+
+.education__year {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: left;
+}
+
+.education__center {
+  line-height: 70%;
+  text-align: left;
+}
+
+.education__course {
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 150%;
+  text-align: left;
+}
+
+.education__tags {
+  color: #149063;
+  font-size: 0.5rem;
+  font-weight: 400;
+}
+
+.education__place {
+  font-size: 0.5rem;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: left;
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/sections/photo.css" />
+    <link rel="stylesheet" href="/styles/sections/intro.css" />
+    <link rel="stylesheet" href="/styles/sections/languages.css" />
+    <link rel="stylesheet" href="/styles/sections/experience.css" />
+    <link rel="stylesheet" href="/styles/sections/tools.css" />
+    <link rel="stylesheet" href="/styles/sections/education.css" />
+    <link rel="stylesheet" href="/styles/sections/interests.css" />
+    <link rel="stylesheet" href="/styles/sections/contact.css" />
+    <link rel="stylesheet" href="/styles/effects.css" />
+    <link rel="stylesheet" href="/styles/media.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <header class="page-header">
+        <h1 class="page-header__title">Resume Builder</h1>
+        <button class="page-header__export-btn" id="exportPdfBtn">EXPORT</button>
+    </header>
+
+    <main class="resume">
+
+        <section class="photo">
+            <img src="./img/profile.png">
+        </section>
+
+        <section class="intro">
+            <div class="intro__header">
+                <p class="intro__greeting">Hello 👋🏻 I'm</p>
+            </div>
+            <div class="intro__content">
+                <p class="intro__name">Karthik SR</p>
+                <p class="intro__profession">UX/UI Designer</p>
+            </div>
+        </section>
+
+        <section class="languages">
+            <h2 class="languages__title">Languages</h2>
+
+            <div class="languages__container">
+                <div class="languages__item">
+                    <span class="languages__name">English</span>
+                    <div class="languages__progress" data-percent="90">
+                        <div class="languages__progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="languages__item">
+                    <span class="languages__name">Malayalam</span>
+                    <div class="languages__progress" data-percent="80">
+                        <div class="languages__progress-bar" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="languages__item">
+                    <span class="languages__name">Hindi</span>
+                    <div class="languages__progress" data-percent="70">
+                        <div class="languages__progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="experience">
+            <h2 class="experience__title">Experience</h2>
+
+            <div class="experience__container">
+
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <span class="experience__dates">Jun. 2023 – Present</span>
+                        <span class="experience__tag experience__tag--recent">most recent</span>
+                    </div>
+
+                    <div class="experience__body">
+                        <div class="experience__info">
+                            <p class="experience__position">Marketing Manager</p>
+                            <p class="experience__type">Pankayam | Full-time</p>
+                        </div>
+                        <ul class="experience__details">
+                            <li class="experience__detail">Strategy development and planning of campaigns that promote
+                                the business and generate genuine traffic</li>
+                            <li class="experience__detail">SEO Content Creation for Blogs, Website, Social media</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <span class="experience__dates">2017 – Present</span>
+                    </div>
+
+                    <div class="experience__body">
+                        <div class="experience__info">
+                            <p class="experience__position">Graphic / Web Designer</p>
+                            <p class="experience__type">Freelance</p>
+                        </div>
+                        <ul class="experience__details">
+                            <li class="experience__detail">Development of internal projects from scratch, product design
+                                of brands</li>
+                            <li class="experience__detail">Landing page, webapps and hybrid apps</li>
+                            <li class="experience__detail">Coordinating with outside agencies, art services, web
+                                designer, marketing, printers, and colleagues as necessary.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience__item">
+                    <div class="experience__header">
+                        <span class="experience__dates">Sep. 2021 – Jun. 2023</span>
+                    </div>
+
+                    <div class="experience__body">
+                        <div class="experience__info">
+                            <p class="experience__position">Legal Assistant</p>
+                            <p class="experience__type">Law Firm | Intern</p>
+                        </div>
+                        <ul class="experience__details">
+                            <li class="experience__detail">Provide administrative support to lawyer and enhance office
+                                effectiveness</li>
+                            <li class="experience__detail">Handle communication with clients, witnesses etc.</li>
+                            <li class="experience__detail">repare case briefs and summarize depositions, interrogatories
+                                and testimony</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools">
+            <h2 class="tools__title">Tools</h2>
+
+            <div class="tools__container">
+
+                <div class="tools__category">
+                    <div class="tools__category-title">design</div>
+                    <div class="tools__icons">
+                        <img src="img/figma.svg" alt="Figma">
+                        <img src="img/photoshop.svg" alt="Adobe Photoshop">
+                        <img src="img/illustrator.svg" alt="Adobe Illustrator">
+                        <img src="img/premiere.svg" alt="Premiere">
+                        <img src="img/notion.svg" alt="Notion">
+                        <img src="img/meet.svg" alt="Meet">
+                    </div>
+                </div>
+
+                <div class="tools__category">
+                    <div class="tools__category-title">no-code</div>
+                    <div class="tools__icons">
+                        <img src="img/zapier.svg" alt="Zapier">
+                        <img src="img/webflow.svg" alt="Webflow">
+                        <img src="img/framer.svg" alt="Framer">
+                        <img src="img/wordpress.svg" alt="WordPress">
+                    </div>
+                </div>
+
+                <div class="tools__category">
+                    <div class="tools__category-title">artificial intelligence</div>
+                    <div class="tools__icons">
+                        <img src="img/chatGPT.svg" alt="ChatGPT">
+                        <img src="img/copilot.svg" alt="Copilot">
+                        <img src="img/midjourney.svg" alt="Midjourney">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2 class="education__title">Education</h2>
+
+            <div class="education__list">
+
+                <div class="education__item education__item--highlight">
+                    <div class="education__year">
+                        <span class="education__year-text">2023</span>
+                        <img src="img/heart.svg" alt="favorite" class="education__favorite-icon">
+                    </div>
+
+                    <div class="education__center">
+                        <div class="education__course">UI/UX</div>
+                        <div class="education__tags">#UI #UX #research #DesignSystem #Ui #wireframing #figma #Ux</div>
+                    </div>
+                    <div class="education__place">Coursera</div>
+                </div>
+
+                <div class="education__item">
+                    <div class="education__year">
+                        <span class="education__year-text">2017 - 2022</span>
+                    </div>
+                    <div class="education__center">
+                        <div class="education__course">Law</div>
+                        <div class="education__tags">#law #legalStudies #contracts #internationalLaws</div>
+                    </div>
+                    <div class="education__place">University of Kerala</div>
+                </div>
+
+                <div class="education__item">
+                    <div class="education__year">
+                        <span class="education__year-text">2017</span>
+                    </div>
+                    <div class="education__center">
+                        <div class="education__course">Graphic Design</div>
+                        <div class="education__tags">#branding #web #illustration #adobe</div>
+                    </div>
+                    <div class="education__place">Coursrea</div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="interests">
+            <h2 class="interests__title">Interests</h2>
+
+            <div class="interests__list">
+                <div class="interests__item">branding</div>
+                <div class="interests__item">design</div>
+                <div class="interests__item">photography</div>
+                <div class="interests__item">artificial intelligence</div>
+                <div class="interests__item">illustration</div>
+                <div class="interests__item">typography</div>
+                <div class="interests__item">social networks</div>
+                <div class="interests__item">research</div>
+                <div class="interests__item">dron pilot</div>
+                <div class="interests__item">games</div>
+            </div>
+        </section>
+
+
+        <section class="contact">
+            <div class="contact__text">
+                <div class="contact__title">Let’s chat! I’m ready to work on exciting projects</div>
+                <div class="contact__email">srkarthik.designscape@gmail.com</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

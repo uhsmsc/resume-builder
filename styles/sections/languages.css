@@ -1,0 +1,82 @@
+.languages {
+  grid-area: languages;
+  display: flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  gap: 1rem;
+}
+
+.languages__title {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #000000;
+  line-height: 150%;
+}
+
+.languages__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.0625rem;
+  align-items: center;
+}
+
+.languages__item {
+  display: contents;
+}
+
+.languages__name {
+  font-weight: 400;
+  font-size: 0.625rem;
+  line-height: 104%;
+  color: #000000;
+}
+
+.languages__progress {
+  position: relative;
+  height: 0.65rem;
+  background: #f0f0f0;
+  border-radius: 0.1875rem;
+}
+
+.languages__progress-bar {
+  height: 100%;
+  background: #28d979;
+  border-radius: 0.1875rem;
+  transition: width 0.4s ease;
+}
+
+.progress-edit {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.progress-input {
+  width: 2rem;
+  height: 1rem;
+  font-size: 0.6rem;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f0f0f0;
+  font-family: var(--font-main);
+}
+
+.progress-percent {
+  font-size: 0.7rem;
+  color: #000;
+}
+
+.languages__progress input::-webkit-outer-spin-button,
+.languages__progress input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

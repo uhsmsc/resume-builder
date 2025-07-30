@@ -1,0 +1,29 @@
+.contact {
+  grid-area: contact;
+  background: #000;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.contact__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.contact__email {
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: #ddd;
+}

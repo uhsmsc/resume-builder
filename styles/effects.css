@@ -1,0 +1,73 @@
+.editable {
+  cursor: text;
+}
+
+/* Фокусы редактируемых полей */
+.intro__greeting.editable:focus,
+.intro__name.editable:focus,
+.intro__profession:focus {
+  outline: 1px dashed #ff2eb2;
+  background-color: #ff2eb20e;
+}
+
+.languages__title.editable:focus,
+.languages__name.editable:focus {
+  outline: 1px dashed #303030;
+}
+
+.tools__title.editable:focus,
+.tools__category-title.editable:focus {
+  outline: 1px dashed #4d01ff;
+  background-color: #4d01ff22;
+  color: black;
+}
+
+.experience__title.editable:focus,
+.experience__dates.editable:focus,
+.experience__position.editable:focus,
+.experience__type.editable:focus,
+.experience__detail.editable:focus,
+.education__title.editable:focus,
+.education__year-text.editable:focus,
+.education__course.editable:focus,
+.education__tags.editable:focus,
+.education__place.editable:focus {
+  outline: 1px dashed #496a4e;
+  background-color: #496a4e2d;
+}
+
+.interests__title.editable:focus,
+.interests__item.editable:focus {
+  outline: 1px dashed #95ff01;
+  background-color: #95ff0126;
+}
+
+.contact__title.editable:focus,
+.contact__email.editable:focus {
+  outline: 1px dashed #95ff01b7;
+  background-color: #95ff0113;
+}
+
+/* Ripple эффект */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 10;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

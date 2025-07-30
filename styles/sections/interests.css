@@ -1,0 +1,34 @@
+.interests {
+  grid-area: interests;
+  background: #f0f0f0;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.interests__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 150%;
+}
+
+.interests__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.interests__item {
+  background: white;
+  border-radius: 42.5rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+}
