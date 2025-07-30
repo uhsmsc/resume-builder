@@ -10,9 +10,25 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
+    const media = resumeElement.querySelectorAll("img, svg");
+    await Promise.all(
+      Array.from(media).map(el => {
+        if (el.tagName === "IMG") {
+          return el.complete
+            ? Promise.resolve()
+            : new Promise(r => { el.onload = el.onerror = r; });
+        } else {
+
+          return Promise.resolve();
+        }
+      })
+    );
+
     const canvas = await html2canvas(resumeElement, {
+      scale: 1,
       useCORS: true,
-      windowWidth: 1440,
+      svgRendering: true,
+      windowWidth: 1440
     });
 
     const imgData = canvas.toDataURL("image/png");
