@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: clamp(16px, 1.4vw, 88px);
+  font-size: clamp(16px, 6vw, 24px);
   font-family: "Poppins", sans-serif;
   background: #f2f2f2;
 }
