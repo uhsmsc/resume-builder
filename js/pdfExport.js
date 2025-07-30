@@ -2,7 +2,7 @@ export const pdfExport = {
   init() {
     const btn = document.getElementById("exportPdfBtn");
     if (!btn) return;
-    btn.addEventListener("click", this.exportPdf);
+    btn.addEventListener("click", this.exportPdf.bind(this));
   },
 
   async exportPdf() {
@@ -10,11 +10,17 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
+    const html = document.documentElement;
+    const oldFontSize = html.style.fontSize;
+    html.style.fontSize = "16px";
+
     const canvas = await html2canvas(resumeElement, {
       scale: 4,
       useCORS: true,
       windowWidth: 1440,
     });
+
+    html.style.fontSize = oldFontSize;
 
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF("p", "mm", "a4");
