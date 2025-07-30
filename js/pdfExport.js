@@ -14,9 +14,10 @@ export const pdfExport = {
     hiddenContainer.style.position = "fixed";
     hiddenContainer.style.left = "-9999px";
     hiddenContainer.style.top = "0";
-    hiddenContainer.style.width = resumeElement.offsetWidth + "px";
-    hiddenContainer.style.height = resumeElement.offsetHeight + "px";
     hiddenContainer.style.overflow = "hidden";
+
+    hiddenContainer.style.width = "1024px";
+    hiddenContainer.style.minWidth = "1024px";
 
     const clone = resumeElement.cloneNode(true);
     clone.classList.add("print-mode");
@@ -28,11 +29,11 @@ export const pdfExport = {
       requestAnimationFrame(() => requestAnimationFrame(r))
     );
 
-    const DESKTOP_WIDTH = 1024;
     const canvas = await html2canvas(clone, {
       useCORS: true,
       scale: 3,
-      windowWidth: DESKTOP_WIDTH,
+      width: 1024, 
+      windowWidth: 1024,
     });
 
     document.body.removeChild(hiddenContainer);
@@ -43,6 +44,7 @@ export const pdfExport = {
       unit: "px",
       format: [canvas.width, canvas.height],
     });
+
     pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
     pdf.save("resume.pdf");
   },
