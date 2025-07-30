@@ -2,7 +2,7 @@ export const pdfExport = {
   init() {
     const btn = document.getElementById("exportPdfBtn");
     if (!btn) return;
-    btn.addEventListener("click", this.exportPdf.bind(this));
+    btn.addEventListener("click", this.exportPdf);
   },
 
   async exportPdf() {
@@ -10,30 +10,30 @@ export const pdfExport = {
     const resumeElement = document.querySelector(".resume");
     if (!resumeElement) return;
 
-    const rect = resumeElement.getBoundingClientRect();
-
     const canvas = await html2canvas(resumeElement, {
       scale: 2,
       useCORS: true,
-      width: rect.width,
-      height: rect.height,
-      windowWidth: document.documentElement.clientWidth,
-      windowHeight: document.documentElement.clientHeight,
-      scrollX: -window.scrollX,
-      scrollY: -window.scrollY,
-      backgroundColor: null,
+      windowWidth: 1440,
     });
 
     const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
 
-    const pxToMm = px => px * 25.4 / 96;
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+    const ratio = canvas.width / canvas.height;
 
-    const imgWidthMm = pxToMm(canvas.width);
-    const imgHeightMm = pxToMm(canvas.height);
+    let imgWidth = pdfWidth;
+    let imgHeight = pdfWidth / ratio;
+    if (imgHeight > pdfHeight) {
+      imgHeight = pdfHeight;
+      imgWidth = pdfHeight * ratio;
+    }
 
-    const pdf = new jsPDF("p", "mm", [imgWidthMm, imgHeightMm]);
+    const x = (pdfWidth - imgWidth) / 2;
+    const y = (pdfHeight - imgHeight) / 2;
 
-    pdf.addImage(imgData, "PNG", 0, 0, imgWidthMm, imgHeightMm);
+    pdf.addImage(imgData, "PNG", x, y, imgWidth, imgHeight);
     pdf.save("resume.pdf");
   },
 };
