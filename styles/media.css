@@ -115,12 +115,16 @@ main {
   }
 
   .tools {
-    gap: 0;
+    gap: 0.9375rem;
   }
 
   .tools__container {
     margin-bottom: 0;
     padding: 0 1.5rem;
+  }
+
+  .tools__category {
+    padding: 1rem 0.25rem;
   }
 
   .tools__icons {
