@@ -13,6 +13,7 @@ export const pdfExport = {
     const canvas = await html2canvas(resumeElement, {
       scale: 2,
       useCORS: true,
+      windowWidth: 1440,
     });
 
     const imgData = canvas.toDataURL("image/png");
