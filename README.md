@@ -1,5 +1,4 @@
 # 📄 Resume Builder
----
 
 ## 📥 Установка и запуск
 
@@ -19,10 +18,7 @@
 
 3. **Открыть проект**
 
----
 
-## GitHub Pages
+## 🖥️ GitHub Pages
 
 [https://uhsmsc.github.io/resume-builder/](https://uhsmsc.github.io/resume-builder/)
-
----
