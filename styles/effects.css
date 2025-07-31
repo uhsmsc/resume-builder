@@ -2,6 +2,12 @@
   cursor: text;
 }
 
+.editable {
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+}
+
 /* Фокусы редактируемых полей */
 .intro__greeting.editable:focus,
 .intro__name.editable:focus,
